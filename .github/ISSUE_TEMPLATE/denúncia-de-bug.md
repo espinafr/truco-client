@@ -3,7 +3,7 @@ name: Denúncia de Bug
 about: Crie uma denúncia e nos ajude a melhorar
 title: "[BUG]"
 labels: bug
-assignees: espinafr
+assignees:
 
 ---
 
