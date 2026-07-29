@@ -24,7 +24,7 @@ body:
   attributes:
     label: Descrição detalhada
     description: |
-      Por favor forneça uma descrição clara e concisa do que é o bug e, se aplicável, cole o log de erro abaixo. Ajuda a melhorar a legibilidade se o log de erro estiver entre blocos de ```` ```aspas triplas``` ````.
+      Por favor forneça uma descrição clara e concisa do que é o bug e, se aplicável, cole o log de erro abaixo. Ajuda a melhorar a legibilidade se o log de erro estiver entre blocos de ```` ```acentos graves triplos``` ````.
     placeholder: |
       Uma descrição clara e concisa do que é o bug. Se aplicável, cole o log de erro abaixo.
 
