@@ -1,0 +1,22 @@
+name: Solicitar funcionalidade
+description: Sugira uma melhoria para o projeto.
+labels: ["enhancement"]
+
+body:
+- type: markdown
+  attributes:
+    value: >
+      #### Obrigado por contribuir! Mas antes de enviar a solicitação, por favor, certifique-se de que uma solicitação idêntica já não exista dando uma olhada nos [relatórios existentes e passados](https://github.com/espinafr/truco-client/issues?page=1&q=is%3Aissue+sort%3Acreated-desc)
+
+- type: textarea
+  attributes:
+    label: Descreva a funcionalidade e motivação.
+    description: |
+      Por favor, forneça uma proposta clara e concisa da funcionalidade e descreva a motivação por trás dela. Isso nos ajudará a entender melhor a solicitação e avaliar sua viabilidade.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Contexto adicional
+    description: |
+      Qualquer outro contexto, como pseudo código, links, diagramas, capturas de tela, para ajudar a comunidade a entender melhor a solicitação de funcionalidade.

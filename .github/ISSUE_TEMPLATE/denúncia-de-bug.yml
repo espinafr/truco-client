@@ -1,0 +1,67 @@
+name: Denunciar bug
+description: Denuncie um bug e nos ajude a melhorar
+labels: ["bug"]
+
+body:
+- type: markdown
+  attributes:
+    value: >
+      #### Obrigado por contribuir! Mas antes de enviar a denúncia, por favor, certifique-se de que uma denúncia idêntica já não exista dando uma olhada nos [relatórios existentes e passados](https://github.com/espinafr/truco-client/issues?page=1&q=is%3Aissue+sort%3Acreated-desc)
+
+- type: textarea
+  attributes:
+    label: Informações do sistema
+    description: |
+      Por favor, forneça as seguintes informações do sistema para nos ajudar a diagnosticar o bug. Por exemplo:
+
+      // computador
+      OS: [ex. Windows 11, Ubuntu 20.04]
+      Navegador [ex. chrome, safari]
+      Versão [ex. 22]
+
+      // celulares
+      Aparelho: [ex. iPhone6]
+      OS: [ex. iOS8.1]
+      Navegador [ex. padrão, safari]
+      Versão [ex. 22]
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Descrição detalhada
+    description: |
+      Por favor forneça uma descrição clara e concisa do que é o bug e, se aplicável, cole o log de erro abaixo. Ajuda a melhorar a legibilidade se o log de erro estiver entre blocos de ```` ```aspas triplas``` ````.
+    placeholder: |
+      Uma descrição clara e concisa do que é o bug. Se aplicável, cole o log de erro abaixo.
+
+      ```
+      log de erro
+      ```
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Etapas para reproduzir o bug
+    description: |
+      Por favor forneça um exemplo minimo para nos ajudar e reproduzir o bug. 
+      
+      Arquivos adicionais (como imagens) podem ser anexados abaixo. Se os arquivos forem muito grandes, sinta-se à vontade para fazer upload em um drive online, compartilhar e colocar o link abaixo.
+    placeholder: |
+      Passos para reproduzir o bug:
+      1. Vá até '...'
+      2. Clique em '....'
+      3. Desça até '....'
+      4. Veja o erro
+
+      Anexos: [print da tela](https://link/para/a/imagem), [print do console](https://link/para/a/imagem)
+  validations:
+    required: true
+- type: checkboxes
+  attributes:
+    label: Checklist de envio
+    options:
+      - label: Estou reportando um bug, e não fazendo uma pergunta
+        required: true
+      - label: Verifiquei se não há outras denúncias iguais
+        required: true
+      - label: Forneci informações suficientes para reproduzir o bug
