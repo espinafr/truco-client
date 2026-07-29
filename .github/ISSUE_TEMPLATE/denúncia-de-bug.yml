@@ -13,17 +13,11 @@ body:
     label: Informações do sistema
     description: |
       Por favor, forneça as seguintes informações do sistema para nos ajudar a diagnosticar o bug. Por exemplo:
-
-      // computador
-      OS: [ex. Windows 11, Ubuntu 20.04]
-      Navegador [ex. chrome, safari]
-      Versão [ex. 22]
-
-      // celulares
-      Aparelho: [ex. iPhone6]
-      OS: [ex. iOS8.1]
-      Navegador [ex. padrão, safari]
-      Versão [ex. 22]
+    placeholder: |
+      - Sistema operacional: Windows 10
+      - Aparelho (quando aplicável): iPhone 12
+      - Versão do navegador: Chrome 90.0.4430.212
+      - Versão do aplicativo: 1.2.3
   validations:
     required: true
 - type: textarea
