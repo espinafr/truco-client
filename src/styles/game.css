@@ -62,6 +62,11 @@
     font-weight: bold;
 }
 
+.card-info {
+    margin: 0;
+    line-height: 1;
+}
+
 .card-top {
     top: var(--card-padding);
     left: var(--card-padding);

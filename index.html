@@ -6,17 +6,19 @@
     <title>Truco</title>
 </head>
 <body>
-    <div class="card-container">
+    <h1>Truco</h1>
+    <h2>Testes iniciais</h2>
+    <template class="card-container" id="template-card">
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="card-top">
-                        <span class="card-number-top">6</span>
-                        <span class="card-suit-top">♠</span>
+                        <span class="card-info card-number"></span>
+                        <span class="card-info card-suit"></span>
                     </div>
                     <div class="card-bottom">
-                        <span class="card-number-bottom">6</span>
-                        <span class="card-suit-bottom">♠</span>
+                        <span class="card-info card-number"></span>
+                        <span class="card-info card-suit"></span>
                     </div>
                 </div>
                 <div class="card-back">
@@ -24,7 +26,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </template>
+    <div class="flex justify-center items-center gap-2" id="cards-display"></div>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/game.ts"></script>
 </body>
