@@ -1,6 +1,8 @@
 import './styles/main.css'
 
-let serverURL: string = "http://127.0.0.1:8000";
+const serverURL: string = import.meta.env.DEV
+	? (import.meta.env.VITE_LOCAL_SERVER_URL ?? '')
+	: (import.meta.env.VITE_PROD_SERVER_URL ?? '');
 
 /**
  * Normaliza a URL do servidor.
