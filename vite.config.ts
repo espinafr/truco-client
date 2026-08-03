@@ -5,5 +5,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  base: '/truco-client/', // importante para GitHub Pages
+  base: '/truco-client/',
 })

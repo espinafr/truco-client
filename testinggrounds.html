@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truco</title>
+</head>
+<body>
+    <h1>Truco</h1>
+    <h2>Área de testes dev</h2>
+    <template class="card-container" id="template-card">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-top">
+                        <span class="card-info card-number"></span>
+                        <span class="card-info card-suit"></span>
+                    </div>
+                    <div class="card-bottom">
+                        <span class="card-info card-number"></span>
+                        <span class="card-info card-suit"></span>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <img src="/images/back.webp" alt="" class="card-img">
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="flex justify-center items-center gap-2" id="cards-display"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/game.ts"></script>
+</body>
+</html>

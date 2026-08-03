@@ -5,30 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Truco</title>
 </head>
-<body>
-    <h1>Truco</h1>
-    <h2>Testes iniciais</h2>
-    <template class="card-container" id="template-card">
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <div class="card-top">
-                        <span class="card-info card-number"></span>
-                        <span class="card-info card-suit"></span>
-                    </div>
-                    <div class="card-bottom">
-                        <span class="card-info card-number"></span>
-                        <span class="card-info card-suit"></span>
-                    </div>
-                </div>
-                <div class="card-back">
-                    <img src="/images/back.webp" alt="" class="card-img">
+<body class="flex flex-col justify-center">
+    <header>
+        <h1>Truco</h1>
+        <h2>Testes iniciais</h2>
+        <p class="p-1.5 bg-gray-900 text-gray-200 w-fit font-mono" id="ping-container"><span class="mx-1 font-black status-servidor-ponto" style="color: yellow;">•</span> <span class="status-servidor-text">conectando...</span></p>
+    </header>
+    <main class="flex-1 p-2">
+        <div class="w-1/2">
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-3 gap-4 gameroom">
+                <div class="bg-slate-200 p-2 text-center border border-gray-400 shadow-gray-400 shadow-[1px_1px_0,2px_2px_0,3px_3px_0]">
+                    <p class="text-xl">Nome da Sala</p>
+                    <p>&#128101; <span class="text-green-800">1/4</span> • <span class="text-red-800">Paulista</span></p>
+                    <p class="m-1 mt-2"><a class="p-2 bg-slate-400 cursor-pointer filter">Entrar</a></p>
                 </div>
             </div>
         </div>
-    </template>
-    <div class="flex justify-center items-center gap-2" id="cards-display"></div>
+    </main>
+    <footer class="p-1">
+        <p><a href="https://github.com/espinafr/truco-client" target="_blank" rel="noopener noreferrer">Contribua no github!</a></p>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
-    <script type="module" src="/src/game.ts"></script>
+    <script type="module" src="/src/index.ts"></script>
 </body>
 </html>
