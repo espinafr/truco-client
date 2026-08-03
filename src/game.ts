@@ -5,7 +5,7 @@ import './styles/game.css'
 const naipes: string[] = ["copas", "espadas", "ouros", "paus"];
 const valores: string[] = ["4", "5", "6", "7", "Q", "J", "K", "A", "2", "3"];
 
-// Cria uma interface (objeto) para representar uma carta, com os valores de naipe e valor (força da carta)
+// Cria uma interface para representar uma carta, com os valores de naipe e valor (força da carta)
 interface Carta {
     valor: string;
     naipe: string;
