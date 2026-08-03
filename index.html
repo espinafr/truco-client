@@ -13,11 +13,11 @@
     </header>
     <main class="flex-1 p-2">
         <div class="w-1/2">
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-3 gap-4 gameroom">
-                <div class="bg-slate-200 p-2 text-center border border-gray-400 shadow-gray-400 shadow-[1px_1px_0,2px_2px_0,3px_3px_0]">
-                    <p class="text-xl">Nome da Sala</p>
-                    <p>&#128101; <span class="text-green-800">1/4</span> • <span class="text-red-800">Paulista</span></p>
-                    <p class="m-1 mt-2"><a class="p-2 bg-slate-400 cursor-pointer filter">Entrar</a></p>
+            <div id="salaDeJogos" class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-3 gap-4">
+                <div class="sala bg-slate-200 p-2 flex flex-col items-center text-center border border-gray-400 shadow-gray-400 shadow-[1px_1px_0,2px_2px_0,3px_3px_0] hover:scale-105 transition-transform">
+                    <p class="text-xl sala-nome">Nome da Sala</p>
+                    <p>&#128101; <span class="sala-players text-green-800">1/4</span> • <span class="sala-modo text-red-800">Paulista</span></p>
+                    <p class="m-1 mt-2 w-fit hover:scale-110 transition-transform"><a class="p-2 bg-slate-400 cursor-pointer filter" href="#">Entrar</a></p>
                 </div>
             </div>
         </div>
