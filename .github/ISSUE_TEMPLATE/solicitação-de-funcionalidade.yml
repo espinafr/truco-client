@@ -20,3 +20,11 @@ body:
     label: Contexto adicional
     description: |
       Qualquer outro contexto, como pseudo código, links, diagramas, capturas de tela, para ajudar a comunidade a entender melhor a solicitação de funcionalidade.
+- type: checkboxes
+  id: checks
+  attributes:
+    label: Verificações
+    description: Por favor marque todas as caixas que se aplicam antes de enviar a solicitação.
+    options:
+      - label: Me certifiquei de que não existe solicitações existentes semelhantes.
+        required: true
