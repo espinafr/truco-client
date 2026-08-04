@@ -11,20 +11,24 @@
         <h2>Testes iniciais</h2>
         <p class="p-1.5 bg-gray-900 text-gray-200 w-fit font-mono" id="ping-container"><span class="mx-1 font-black status-servidor-ponto" style="color: yellow;">•</span> <span class="status-servidor-text">conectando...</span></p>
     </header>
-    <main class="flex-1 p-2">
-        <div class="w-1/2">
-            <div id="salaDeJogos" class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-3 gap-4">
-                <div class="sala bg-slate-200 p-2 flex flex-col items-center text-center border border-gray-400 shadow-gray-400 shadow-[1px_1px_0,2px_2px_0,3px_3px_0] hover:scale-105 transition-transform">
-                    <p class="text-xl sala-nome">Nome da Sala</p>
-                    <p>&#128101; <span class="sala-players text-green-800">1/4</span> • <span class="sala-modo text-red-800">Paulista</span></p>
-                    <p class="m-1 mt-2 w-fit hover:scale-110 transition-transform"><a class="p-2 bg-slate-400 cursor-pointer filter" href="#">Entrar</a></p>
-                </div>
+    <main class="flex-1 p-5">
+        <div class="w-full h-full bg-gray-300 scroll-y-auto">
+            <div id="gameroom" class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-4 gap-4">
+                <p>Procurando salas abertas...</p>
             </div>
         </div>
     </main>
     <footer class="p-1">
         <p><a href="https://github.com/espinafr/truco-client" target="_blank" rel="noopener noreferrer">Contribua no github!</a></p>
     </footer>
+    <template id="template-room">
+        <div class="bg-slate-200 p-2 flex flex-col items-center text-center border border-gray-400 shadow-gray-400 shadow-[1px_1px_0,2px_2px_0,3px_3px_0] hover:scale-105 transition-transform">
+            <p class="text-xl room-info room-name" data-type="name">Nome da Sala</p>
+            <p>&#128101; <span class="room-info room-players text-green-800" data-type="players">1/4</span> • <span class="room-info room-type text-red-800" data-type="type">Paulista</span></p>
+            <p class="m-1 mt-2 w-fit hover:scale-110 transition-transform"><a class="room-info room-link p-2 bg-slate-400 cursor-pointer filter" href="#">Entrar</a></p>
+        </div>
+    </template>
+    <template id="template-gameroom-empty"><p>Não há salas abertas. <a href="#" class="underline text-blue-700">Crie uma!</a></p></template>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/index.ts"></script>
 </body>
