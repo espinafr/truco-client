@@ -2,22 +2,22 @@
 import './styles/game.css'
 
 // Define as variáveis globais usadas no jogo
-const naipes: string[] = ["copas", "espadas", "ouros", "paus"];
-const valores: string[] = ["4", "5", "6", "7", "Q", "J", "K", "A", "2", "3"];
+const suits: string[] = ["copas", "espadas", "ouros", "paus"];
+const values: string[] = ["4", "5", "6", "7", "Q", "J", "K", "A", "2", "3"];
 
 // Cria uma interface para representar uma carta, com os valores de naipe e valor (força da carta)
-interface Carta {
-    valor: string;
-    naipe: string;
+interface Card {
+    value: string;
+    suit: string;
 }
 
 /**
     * Converte o nome do naipe em seu símbolo correspondente.
-    * @param {string} naipe O nome do naipe.
+    * @param {string} suit O nome do naipe.
     * @returns {string} O símbolo do naipe.
 */
-function converterTextoNaipe(naipe: string): string {
-    switch (naipe) {
+function convertSuitToSymbol(suit: string): string {
+    switch (suit) {
         case "copas":
             return "♥";
         case "espadas":
@@ -33,10 +33,10 @@ function converterTextoNaipe(naipe: string): string {
 
 /**
     * Cria uma carta no DOM com base nas informações fornecidas.
-    * @param {Carta} carta As informações da carta a ser criada.
+    * @param {Card} card As informações da carta a ser criada.
     * @returns {HTMLDivElement} O elemento HTML da carta criada.
 */
-function criarCarta(carta: Carta): HTMLDivElement {
+function createCard(card: Card): HTMLDivElement {
     // Seleciona o template do HTML
     const template = document.getElementById('template-card') as HTMLTemplateElement | null;
 
@@ -53,9 +53,9 @@ function criarCarta(carta: Carta): HTMLDivElement {
     replica.querySelectorAll('.card-info').forEach(info => { // Seleciona todos os elementos com a classe 'card-info' dentro da réplica da carta
         if (info instanceof HTMLElement) { // Verifica se o elemento é um HTMLElement antes de tentar acessar suas propriedades
             if (info.classList.contains('card-number')) {
-                info.textContent = carta.valor; // Se o elemento tiver a classe 'card-number', define seu texto como o valor da carta
+                info.textContent = card.value; // Se o elemento tiver a classe 'card-number', define seu texto como o valor da carta
             } else {
-                info.textContent = converterTextoNaipe(carta.naipe); // Se não, define seu texto como o símbolo do naipe da carta
+                info.textContent = convertSuitToSymbol(card.suit); // Se não, define seu texto como o símbolo do naipe da carta
             }
         }
     });
@@ -72,11 +72,11 @@ function criarCarta(carta: Carta): HTMLDivElement {
 const display: HTMLElement | null = document.getElementById('cards-display');
 if (display) {
     for (let i = 0; i < 3; i++) {
-        const carta: Carta = {
-            valor: valores[Math.floor(Math.random() * valores.length)],
-            naipe: naipes[Math.floor(Math.random() * naipes.length)]
+        const card: Card = {
+            value: values[Math.floor(Math.random() * values.length)],
+            suit: suits[Math.floor(Math.random() * suits.length)]
         };
-        const cartaElement = criarCarta(carta);
-        display.appendChild(cartaElement);
+        const cardElement = createCard(card);
+        display.appendChild(cardElement);
     }
 }

@@ -109,15 +109,15 @@ export function updateServerStatus(isConnected: boolean, ping?: number): void {
         return;
     }
 
-    const texto = pingContainer.querySelector('.status-servidor-text') as HTMLElement | null;
-    const ponto = pingContainer.querySelector('.status-servidor-ponto') as HTMLElement | null;
+    const text = pingContainer.querySelector('.status-servidor-text') as HTMLElement | null;
+    const dot = pingContainer.querySelector('.status-servidor-ponto') as HTMLElement | null;
 
-    if (texto) {
-        texto.textContent = isConnected ? 'conectado' : 'desconectado';
+    if (text) {
+        text.textContent = isConnected ? 'conectado' : 'desconectado';
     }
 
-    if (ponto) {
-        ponto.style.color = isConnected ? 'green' : 'red';
+    if (dot) {
+        dot.style.color = isConnected ? 'green' : 'red';
     }
 
     if (ping !== undefined) {
