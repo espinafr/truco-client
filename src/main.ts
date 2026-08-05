@@ -63,7 +63,7 @@ export async function getRequest<T = unknown>(route?: string, init: RequestInit 
 	const body = await readResponseBody(response); // Lê o corpo da resposta
 
 	if (!response.ok) { // Se a resposta não for bem-sucedida, lança um erro com informações sobre a falha
-		throw new Error(`GET ${response.url} failed with status ${response.status}: ${typeof body === 'string' ? body : JSON.stringify(body)}`);
+		throw new Error(`GET ${response.url} falhou com status ${response.status}: ${typeof body === 'string' ? body : JSON.stringify(body)}`);
 	}
 
 	return body as T;
@@ -98,7 +98,7 @@ export async function postRequest<T = unknown, B = unknown>(route?: string, body
 	const responseBody = await readResponseBody(response);
 
 	if (!response.ok) {// Se a resposta não for bem-sucedida, lança um erro com informações sobre a falha
-		throw new Error(`POST ${response.url} failed with status ${response.status}: ${typeof responseBody === 'string' ? responseBody : JSON.stringify(responseBody)}`);
+		throw new Error(`POST ${response.url} falhou com status ${response.status}: ${typeof responseBody === 'string' ? responseBody : JSON.stringify(responseBody)}`);
 	}
 
     // Devolve o corpo da resposta como o tipo genérico T, permitindo que o chamador especifique o tipo esperado da resposta
