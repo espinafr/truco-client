@@ -1,4 +1,4 @@
-import { getRequest, updateServerStatus, WebSocketClient, type DefaultPayload } from "./main.ts";
+import { getRequest, updateServerStatus, WebSocketClient, fireConnectionWidget, type DefaultPayload, type LifecycleHooks, setupReconnectButton } from "./main.ts";
 
 // Cria uma interface para representar uma sala
 interface RoomInfo {
@@ -82,13 +82,14 @@ const roomFinder = new WebSocketClient(
 );
 
 document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        await getRequest<{ status: string }>('/health');
-        updateServerStatus(true);
-        roomFinder.connect();
-    } catch (error) {
-        updateRoomList([]);
-        console.error('Erro ao chamar a API:', error);
-        updateServerStatus(false);
-    }
+    await fireConnectionWidget({
+        onSuccess: () => {
+            roomFinder.connect();
+        },
+        onError: () => {
+            updateRoomList([]);
+        }
+    });
+    
+    setupReconnectButton();
 });

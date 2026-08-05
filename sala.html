@@ -6,27 +6,21 @@
     <title>Truco</title>
 </head>
 <body>
-    <h1>Truco</h1>
-    <h2>Testes iniciais</h2>
-    <template class="card-container" id="template-card">
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <div class="card-top">
-                        <span class="card-info card-number"></span>
-                        <span class="card-info card-suit"></span>
-                    </div>
-                    <div class="card-bottom">
-                        <span class="card-info card-number"></span>
-                        <span class="card-info card-suit"></span>
-                    </div>
-                </div>
-                <div class="card-back">
-                    <img src="/images/back.webp" alt="" class="card-img">
-                </div>
+    <header>
+        <h1>Truco</h1>
+        <h2>Testes iniciais</h2>
+        <p class="p-1.5 bg-gray-900 text-gray-200 w-fit font-mono" id="ping-container"><span class="mx-1 font-black status-servidor-ponto" style="color: yellow;">•</span> <span class="status-servidor-text">conectando...</span> <button id="reconnect-button" class="hover:filter hover:brightness-125 cursor-pointer text-white font-bold rounded">🔄</button></p>
+    </header>
+    <main class="flex-1 p-5">
+        <div class="w-full h-full bg-gray-300 scroll-y-auto">
+            <div id="gameroom" class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-4 gap-4">
+                <p>Procurando salas abertas...</p>
             </div>
         </div>
-    </template>
+    </main>
+    <footer class="p-1">
+        <p><a href="https://github.com/espinafr/truco-client" target="_blank" rel="noopener noreferrer">Contribua no github!</a></p>
+    </footer>
     <div class="flex justify-center items-center gap-2" id="cards-display"></div>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/game.ts"></script>

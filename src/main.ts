@@ -4,6 +4,13 @@ const serverURL: string = import.meta.env.DEV
 	? (import.meta.env.VITE_LOCAL_SERVER_URL ?? '')
 	: (import.meta.env.VITE_PROD_SERVER_URL ?? '');
 
+
+// Interface para definir funções de callback para eventos de ciclo de vida, como sucesso ou erro em operações assíncronas
+export interface LifecycleHooks {
+    onSuccess?: (...args: any[]) => void;
+    onError?: (...args: any[]) => void;
+}
+
 // POST & GET
 
 /**
@@ -125,6 +132,51 @@ export function updateServerStatus(isConnected: boolean, ping?: number): void {
         if (pingContainer) {
             pingContainer.textContent = `• ${isConnected ? 'conectado' : 'desconectado'} - Ping: ${ping}ms`;
         }
+    }
+}
+
+/**
+ * Tenta estabelecer uma conexão com o servidor e atualiza o status na interface do usuário.
+ * @param hooks Um objeto contendo callbacks opcionais para sucesso e erro.
+ */
+export async function fireConnectionWidget(hooks?: LifecycleHooks): Promise<void> {
+    try {
+        await getRequest('/health');
+        updateServerStatus(true);
+
+        hooks?.onSuccess?.();
+    } catch (error) {
+        updateServerStatus(false);
+        console.error('Erro ao chamar a API:', error);
+
+        hooks?.onError?.();
+    }
+}
+
+/**
+ * Configura a tentativa de reconexão ao servidor
+ */
+export function setupReconnectButton(): void {
+    const reconnectButton = document.getElementById('reconnect-button') as HTMLButtonElement | null;
+    if (reconnectButton) {
+        reconnectButton.addEventListener('click', async () => {
+            reconnectButton.textContent = '⏳';
+            reconnectButton.disabled = true;
+
+            await fireConnectionWidget({
+                onSuccess: () => {
+                    console.log('Reconexão bem-sucedida.');
+                },
+                onError: () => {
+                    console.error('Falha na reconexão.');
+                }
+            });
+
+            reconnectButton.textContent = '🔄';
+            reconnectButton.disabled = false;
+        });
+    } else {
+        throw new Error('Botão de reconexão não encontrado no DOM.');
     }
 }
 

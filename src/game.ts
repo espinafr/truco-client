@@ -1,4 +1,5 @@
 // Importa o código CSS para estilizar o jogo
+import { fireConnectionWidget, setupReconnectButton } from './main';
 import './styles/game.css'
 
 // Define as variáveis globais usadas no jogo
@@ -69,14 +70,23 @@ function createCard(card: Card): HTMLDivElement {
 }
 
 // Testa a função
-const display: HTMLElement | null = document.getElementById('cards-display');
-if (display) {
-    for (let i = 0; i < 3; i++) {
-        const card: Card = {
-            value: values[Math.floor(Math.random() * values.length)],
-            suit: suits[Math.floor(Math.random() * suits.length)]
-        };
-        const cardElement = createCard(card);
-        display.appendChild(cardElement);
+try {
+    const display: HTMLElement | null = document.getElementById('cards-display');
+    if (display) {
+        for (let i = 0; i < 3; i++) {
+            const card: Card = {
+                value: values[Math.floor(Math.random() * values.length)],
+                suit: suits[Math.floor(Math.random() * suits.length)]
+            };
+            const cardElement = createCard(card);
+            display.appendChild(cardElement);
+        }
     }
+} catch (error) {
+    console.error('Erro ao criar cartas:', error);
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await fireConnectionWidget();
+    setupReconnectButton();
+});
