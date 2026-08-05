@@ -5,7 +5,9 @@ import './styles/game.css'
 const suits: string[] = ["copas", "espadas", "ouros", "paus"];
 const values: string[] = ["4", "5", "6", "7", "Q", "J", "K", "A", "2", "3"];
 
-// Cria uma interface para representar uma carta, com os valores de naipe e valor (força da carta)
+/**
+ * Cria uma interface para representar uma carta, com os valores de naipe e valor (força da carta)
+ */
 interface Card {
     value: string;
     suit: string;
@@ -35,9 +37,12 @@ function convertSuitToSymbol(suit: string): string {
     * Cria uma carta no DOM com base nas informações fornecidas.
     * @param {Card} card As informações da carta a ser criada.
     * @returns {HTMLDivElement} O elemento HTML da carta criada.
+    * 
+    * @example 
+    * const novaCarta: Carta = { value: "A", suit: "copas" };
+    * createCard(novaCarta);
 */
 function createCard(card: Card): HTMLDivElement {
-    // Seleciona o template do HTML
     const template = document.getElementById('template-card') as HTMLTemplateElement | null;
 
     // Verifica se o template existe antes de tentar clonar e manipular seu conteúdo
