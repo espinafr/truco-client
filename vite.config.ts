@@ -5,5 +5,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  base: '/truco-client/',
+  base: '/OpenTruco-client/',
 })
