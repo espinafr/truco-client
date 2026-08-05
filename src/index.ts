@@ -71,7 +71,7 @@ function updateRoomList(rooms: RoomInfo[]): void {
     }
 }
 
-const roomFinder = new WebSocketClient(
+const roomFinder = new WebSocketClient( // Por enquanto, para fins de teste
     "ws://localhost:8000/game/rooms", 
     (payload: DefaultPayload) => {
         if (payload.type === "rooms_list") {
