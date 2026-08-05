@@ -1,5 +1,4 @@
-// Importa o código CSS para estilizar o jogo
-import { fireConnectionWidget, setupReconnectButton } from './main';
+import { fireConnectionWidget, setupReconnectButton } from '../ui/server-status.ts';
 import './styles/game.css'
 
 // Define as variáveis globais usadas no jogo

@@ -1,4 +1,5 @@
-import { WebSocketClient, fireConnectionWidget, type DefaultPayload, setupReconnectButton } from "./main.ts";
+import { fireConnectionWidget, setupReconnectButton } from "../ui/server-status.ts";
+import { WebSocketClient, buildWebsocketServerUrl, type DefaultPayload } from "../lib/websocket.ts";
 
 // Cria uma interface para representar uma sala
 interface RoomInfo {
@@ -72,7 +73,7 @@ function updateRoomList(rooms: RoomInfo[]): void {
 }
 
 const roomFinder = new WebSocketClient( // Por enquanto, para fins de teste
-    "ws://localhost:8000/game/rooms", 
+    buildWebsocketServerUrl("game/rooms"),
     (payload: DefaultPayload) => {
         if (payload.type === "rooms_list") {
             const rooms = payload.message as RoomInfo[];
