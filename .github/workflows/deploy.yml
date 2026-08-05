@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Gere o artefato
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
