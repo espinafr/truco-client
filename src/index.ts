@@ -1,4 +1,4 @@
-import { getRequest, updateServerStatus, WebSocketClient, fireConnectionWidget, type DefaultPayload, type LifecycleHooks, setupReconnectButton } from "./main.ts";
+import { WebSocketClient, fireConnectionWidget, type DefaultPayload, setupReconnectButton } from "./main.ts";
 
 // Cria uma interface para representar uma sala
 interface RoomInfo {
