@@ -72,20 +72,28 @@ function updateRoomList(rooms: RoomInfo[]): void {
     }
 }
 
-const roomFinder = new WebSocketClient( // Por enquanto, para fins de teste
-    buildWebsocketServerUrl("game/rooms"),
-    (payload: DefaultPayload) => {
-        if (payload.type === "rooms_list") {
-            const rooms = payload.message as RoomInfo[];
-            updateRoomList(rooms);
+let roomFinder: WebSocketClient;
+try { 
+    const websocketServerURL = buildWebsocketServerUrl("game/rooms");
+    roomFinder = new WebSocketClient( // Por enquanto, para fins de teste
+        websocketServerURL,
+        (payload: DefaultPayload) => {
+            if (payload.type === "rooms_list") {
+                const rooms = payload.message as RoomInfo[];
+                updateRoomList(rooms);
+            }
         }
-    }
-);
+    );
+} catch (error) {
+    console.error("Erro ao construir a URL do servidor WebSocket:", error);
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
     await fireConnectionWidget({
         onSuccess: () => {
-            roomFinder.connect();
+            if (roomFinder) {
+                roomFinder.connect();
+            }
         },
         onError: () => {
             updateRoomList([]);
