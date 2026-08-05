@@ -1,15 +1,21 @@
 version: 2
-groups:
-  all-dependencies:
-    patterns:
-      - "*"
 updates:
   - package-ecosystem: "npm"
     directory: "/"
+    open-pull-requests-limit: 1
     schedule:
       interval: "weekly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
+    open-pull-requests-limit: 1
     schedule:
       interval: "weekly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
