@@ -13,7 +13,13 @@
 
 ## Sobre o projeto
 
-OpenTruco é um projeto que visa introduzir brasileiros para o mundo Open-Source, dividido em dois repositórios, o [client (onde você está)](https://github.com/espinafr/OpenTruco-client/), e o [servidor](https://github.com/espinafr/OpenTruco-server/). Este repositório contém a interface do jogo, feita com TypeScript e Tailwind.
+OpenTruco é um projeto que visa introduzir brasileiros para o mundo Open-Source. Atualmente dividido em dois repositórios, o [cliente (onde você está)](https://github.com/espinafr/OpenTruco-client/), e o [servidor](https://github.com/espinafr/OpenTruco-server/). Este repositório contém a interface do jogo, feita com TypeScript e Tailwind.
+
+## Contribuindo
+
+Contribuições são o que fazem a comunidade open-source um lugar tão maravilhoso para aprender, inspirar e criar. Quaisquer contribuições que você fizer serão **muitíssimo apreciadas**
+
+Se isso te interessa, leia o arquivo [CONTRIBUTING.md](https://github.com/espinafr/OpenTruco-client?tab=contributing-ov-file#obrigado)!
 
 ## Começando
 
@@ -44,12 +50,6 @@ Antes de começar oficialmente, você precisa instalar as seguintes ferramentas:
    ```sh
    npm run dev
    ```
-
-## Contribuindo
-
-Contribuições são o que fazem a comunidade open-source um lugar tão maravilhoso para aprender, inspirar e criar. Quaisquer contribuições que você fizer serão **muitíssimo apreciadas**
-
-Se isso te interessa, leia o arquivo CONTRIBUTING.md!
 
 ## Licença
 
