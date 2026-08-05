@@ -105,6 +105,23 @@ export async function postRequest<T = unknown, B = unknown>(route?: string, body
 	return responseBody as T;
 }
 
+/* Exemplo de uso das requisições genéricas com rotas mock.
+
+export async function exampleApiUsage(): Promise<void> {
+	try {
+		const health = await getRequest<{ status: string }>('/teste');
+		console.log('GET /health:', health);
+
+		const createdUser = await postRequest<{ id: string; ok: boolean }, { name: string }>('/mock/users', {
+			name: 'João',
+		});
+		console.log('POST /mock/users:', createdUser);
+	} catch (error) {
+		console.error('Erro ao chamar a API:', error);
+	}
+}
+*/
+
 /**
  * Atualiza o status do servidor na interface do usuário.
  * @param isConnected Indica se o servidor está conectado.
@@ -141,15 +158,15 @@ export function updateServerStatus(isConnected: boolean, ping?: number): void {
  */
 export async function fireConnectionWidget(hooks?: LifecycleHooks): Promise<void> {
     try {
-        await getRequest('/health');
-        updateServerStatus(true);
+        await getRequest('/health'); // Faz uma requisição GET para a rota '/health' do servidor para verificar se ele está ativo
+        updateServerStatus(true); // Se o request não der erro, o código continua e ele atualiza o widget de status
 
-        hooks?.onSuccess?.();
+        hooks?.onSuccess?.(); // Se houver um callback de sucesso definido, ele é chamado
     } catch (error) {
-        updateServerStatus(false);
-        console.error('Erro ao chamar a API:', error);
+        updateServerStatus(false); // Se houver um erro na requisição, o widget de status é atualizado para indicar que o servidor está desconectado
+        console.error('Erro ao chamar a API:', error); // Loga o erro no console para depuração
 
-        hooks?.onError?.();
+        hooks?.onError?.(); // Se houver um callback de erro definido, ele é chamado
     }
 }
 
@@ -179,23 +196,6 @@ export function setupReconnectButton(): void {
         throw new Error('Botão de reconexão não encontrado no DOM.');
     }
 }
-
-/* Exemplo de uso das requisições genéricas com rotas mock.
-
-export async function exampleApiUsage(): Promise<void> {
-	try {
-		const health = await getRequest<{ status: string }>('/teste');
-		console.log('GET /health:', health);
-
-		const createdUser = await postRequest<{ id: string; ok: boolean }, { name: string }>('/mock/users', {
-			name: 'João',
-		});
-		console.log('POST /mock/users:', createdUser);
-	} catch (error) {
-		console.error('Erro ao chamar a API:', error);
-	}
-}
-*/
 
 // Webhooks
 
